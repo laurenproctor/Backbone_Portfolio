@@ -19,12 +19,23 @@ $(document).ready(function() {
     body: "Click to edit"
   });
 
-  projectList.forEach(function(project) {
-    var view = new app.views.ProjectView({ model: project });
-    $('#project-list').append(view.render().el);
-  });
+  // projectList.forEach(function(project) {
+  //   var view = new app.views.ProjectView({ model: project });
+  //   $('#project-list').append(view.render().el);
+  // });
 
   // Create a view for the first Project and render it
   // var view = new app.views.ProjectView({ model: projectList.first() });
   // $('#project-list').append(view.render().el);
+
+  var me = new app.models.User({
+    first_name: "Lauren",
+    last_name: "Proctor",
+    image_url: 'uploads/lp.jpg',
+    bio: 'I\'m a TA at General Assembly in NYC',
+    mission: 'Mission: Code code code'
+  });
+  new app.views.UserView({
+    model: me
+  }).render();
 });
